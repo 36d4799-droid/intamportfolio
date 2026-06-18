@@ -201,8 +201,7 @@
             <div class="text-center">
                 <span class="text-xs font-bold bg-white/5 border border-white/10 px-3 py-1 rounded-full text-pink-300">NOW PLAYING PROFILE</span>
             </div>
-            <div class="w-5 h-5 opacity-0"></div>
-        </nav>
+            <div class="w-5 h-5 opacity-0"></div> </nav>
 
         <header class="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#ffb8d1]/30 via-[#25172b]/60 to-[#161622]/90 p-6 md:p-10 flex flex-col md:flex-row items-center md:items-end gap-6 mb-10 shadow-2xl border border-white/5 backdrop-blur-md">
             
@@ -284,9 +283,9 @@
 
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
                     <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
-                        <div class="relative aspect-square bg-gradient-to-br from-indigo-400 via-indigo-600 to-slate-900 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                        <div class="relative aspect-square bg-gradient-to-br from-indigo-400 via-indigo-600 to-slate-900 rounded-xl mb-4 flex items-center justify-center shadow-inner text-5xl select-none">
                             😴
-                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95">
                                 <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
                             </button>
                         </div>
@@ -300,9 +299,9 @@
                     </div>
 
                     <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
-                        <div class="relative aspect-square bg-gradient-to-br from-cyan-400 via-teal-600 to-gray-900 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                        <div class="relative aspect-square bg-gradient-to-br from-cyan-400 via-teal-600 to-gray-900 rounded-xl mb-4 flex items-center justify-center shadow-inner text-5xl select-none">
                             🎬
-                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95">
                                 <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
                             </button>
                         </div>
@@ -316,9 +315,9 @@
                     </div>
 
                     <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
-                        <div class="relative aspect-square bg-gradient-to-br from-[#ff9ebb] via-[#ff5c8a] to-rose-950 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                        <div class="relative aspect-square bg-gradient-to-br from-[#ff9ebb] via-[#ff5c8a] to-rose-950 rounded-xl mb-4 flex items-center justify-center shadow-inner text-5xl select-none">
                             🧼
-                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl hover:scale-110 active:scale-95">
                                 <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
                             </button>
                         </div>
@@ -408,11 +407,11 @@
                         </div>
                         <h2 class="text-lg font-bold tracking-wider uppercase text-white">REVIEWS / 실시간 한줄평 방명록</h2>
                     </div>
-                    <span id="comment-counter" class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400 font-bold">총 0개 한줄평</span>
+                    <span id="comment-counter" class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400 font-bold">총 2개 한줄평</span>
                 </div>
                 
                 <form id="portfolio-comment-form" class="flex flex-col sm:flex-row gap-3">
-                    <input type="text" id="input-nickname" placeholder="닉네임" maxLength="10" required 
+                    <input type="text" id="input-nickname" placeholder="닉네임" max-length="10" required 
                            class="bg-[#212135] border border-white/5 focus:border-[#ff5c8a] focus:bg-[#28283f] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 outline-none w-full sm:w-1/4 transition-all shadow-inner">
                     <input type="text" id="input-body" placeholder="지우의 플레이리스트와 프로필을 보고 느낀 감상평을 남겨주세요!" required 
                            class="bg-[#212135] border border-white/5 focus:border-[#ff5c8a] focus:bg-[#28283f] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 outline-none flex-1 transition-all shadow-inner">
@@ -423,7 +422,27 @@
                 </form>
 
                 <div id="portfolio-comment-wrapper" class="space-y-3.5 max-h-72 overflow-y-auto pr-1">
+                    <div class="bg-[#212135]/40 p-4 rounded-xl flex justify-between items-start border border-white/5">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-sm text-[#ffb8d1]">멜론명예전당</span>
+                                <span class="text-[10px] bg-white/5 text-gray-500 px-1.5 py-0.5 rounded font-mono">Listener</span>
+                            </div>
+                            <p class="text-sm text-gray-300">"이디우이다" 라는 가사가 주는 직관적이면서도 확고한 아이덴티티가 너무 완벽합니다. 무한스밍 돌릴게요.</p>
+                        </div>
+                        <span class="text-[11px] font-mono text-gray-500 whitespace-nowrap ml-4">방금 전</span>
                     </div>
+                    <div class="bg-[#212135]/40 p-4 rounded-xl flex justify-between items-start border border-white/5">
+                        <div class="space-y-1">
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-sm text-cyan-400">마크덕후</span>
+                                <span class="text-[10px] bg-white/5 text-gray-500 px-1.5 py-0.5 rounded font-mono">Guest</span>
+                            </div>
+                            <p class="text-sm text-gray-300">상단 배너 프로필 사진 픽셀 돼지 구현력 실화인가요ㅋㅋㅋ 마인크래프트 땡기게 만드는 완벽한 디자인 인정입니다.</p>
+                        </div>
+                        <span class="text-[11px] font-mono text-gray-500 whitespace-nowrap ml-4">1시간 전</span>
+                    </div>
+                </div>
             </section>
 
         </main>
@@ -485,8 +504,10 @@
 
 
     <script>
+        // Lucide SVG 웹 그래픽 라이브러리 아이콘 세트 렌더링 런처
         lucide.createIcons();
 
+        // 글로벌 싱글페이지 DOM 포인터 바인딩 선언 리스트
         const introScreen = document.getElementById('intro-screen');
         const mainContent = document.getElementById('main-content');
         const startPlaylistCard = document.getElementById('start-playlist-card');
@@ -503,16 +524,25 @@
         let coreAudioPlaying = false;
         let timelineTickerInterval = null;
         let elapsedTotalSeconds = 0;
-        const maxTrackLengthSeconds = 192;
+        const maxTrackLengthSeconds = 192; // 가상 오디오 3분 12초 고정
 
+        /**
+         * 메인 인터랙티브 코어 스위칭 허브 활성화 제어 함수
+         */
         function handleSwitchToMainDashboard() {
+            // 인트로 가시성 즉시 디졸브 트랜지션
             introScreen.classList.add('opacity-0', 'scale-95');
+            
             setTimeout(() => {
                 introScreen.classList.add('hidden');
                 mainContent.classList.remove('hidden');
+                
+                // 순차 레이아웃 리플로우 및 내부 페이드인 컴포지팅
                 setTimeout(() => {
                     mainContent.classList.remove('opacity-0');
                     mainContent.classList.add('opacity-100');
+                    
+                    // 메인 화면 전환과 동시에 하단 글로벌 오디오 플레이어 엔진 연동 오토런 트리거
                     if (!coreAudioPlaying) {
                         toggleCorePlaybackEngine();
                     }
@@ -520,12 +550,17 @@
             }, 800);
         }
 
+        /**
+         * 다시 시작 화면 인트로로 롤백 제어하는 트래킹 백 패스 함수
+         */
         function handleReturnToIntroSplash() {
             mainContent.classList.remove('opacity-100');
             mainContent.classList.add('opacity-0');
+            
             setTimeout(() => {
                 mainContent.classList.add('hidden');
                 introScreen.classList.remove('hidden');
+                
                 setTimeout(() => {
                     introScreen.classList.remove('opacity-0', 'scale-95');
                     introScreen.classList.add('opacity-100');
@@ -533,18 +568,29 @@
             }, 800);
         }
 
+        /**
+         * 가상 오디오 시간 진행 업데이트 스케줄러 틱 루프 타임 연산
+         */
         function runAudioTimelineTicker() {
             if(timelineTickerInterval) clearInterval(timelineTickerInterval);
+            
             timelineTickerInterval = setInterval(() => {
                 if (elapsedTotalSeconds < maxTrackLengthSeconds) {
                     elapsedTotalSeconds++;
+                    
+                    // 시/분 파싱 문자열 수식 컴포넌트 변환
                     const calculatedMinutes = Math.floor(elapsedTotalSeconds / 60);
                     const calculatedSeconds = elapsedTotalSeconds % 60;
                     const paddedSecondsString = calculatedSeconds < 10 ? '0' + calculatedSeconds : calculatedSeconds;
+                    
+                    // 렌더 타겟 주입 피드백
                     footerPlaybackTime.textContent = `${calculatedMinutes}:${paddedSecondsString}`;
+                    
+                    // 가로폭 퍼센티지 바 수식 정밀 연산 연동
                     const progressPercentage = (elapsedTotalSeconds / maxTrackLengthSeconds) * 100;
                     footerPlaybackProgress.style.width = `${progressPercentage}%`;
                 } else {
+                    // 미디어 완곡 시 강제 루프 초기화 로직 구현
                     elapsedTotalSeconds = 0;
                     footerPlaybackProgress.style.width = `0%`;
                     footerPlaybackTime.textContent = "0:00";
@@ -552,37 +598,54 @@
             }, 1000);
         }
 
-         Tar가 전광판 플레이 스위칭 기능
+        /**
+         * 글로벌 재생/일시정지 상태 머신 인터랙티브 밸브 코어 스위치
+         */
         function toggleCorePlaybackEngine() {
             coreAudioPlaying = !coreAudioPlaying;
+            
             if (coreAudioPlaying) {
+                // PLAYING ACTIVE ACTION STATE
                 masterPlaybackTrigger.innerHTML = '<i data-lucide="pause" class="w-4.5 h-4.5 fill-black text-black"></i>';
                 audioLiveEqualizer.classList.remove('opacity-30');
                 audioLiveEqualizer.classList.add('opacity-100');
+                
+                // 모든 개별 이퀄라이저 오르내림 애니메이션 엔진에 인라인 락 해제
                 eqBars.forEach(bar => bar.style.animationPlayState = 'running');
+                
+                // 가사 전광판 마키 스크롤 흐르기 전용 CSS 클래스 래핑 주입
                 mediaRunningTitle.classList.add('animate-marquee');
+                
+                // 독립 스케줄러 가동
                 runAudioTimelineTicker();
             } else {
+                // PAUSED HALT ACTION STATE
                 masterPlaybackTrigger.innerHTML = '<i data-lucide="play" class="w-4.5 h-4.5 fill-black text-black translate-x-0.5"></i>';
                 audioLiveEqualizer.classList.remove('opacity-100');
                 audioLiveEqualizer.classList.add('opacity-30');
+                
+                // 애니메이션 정지상태 일시 홀딩
                 eqBars.forEach(bar => bar.style.animationPlayState = 'paused');
                 mediaRunningTitle.classList.remove('animate-marquee');
+                
+                // 인스턴스 소거
                 if(timelineTickerInterval) {
                     clearInterval(timelineTickerInterval);
                     timelineTickerInterval = null;
                 }
             }
+            // 동적 돔 변경에 의거한 Lucide 벡터 리렌더링
             lucide.createIcons();
         }
 
+        // 마스터 이벤트 리스너 리스팅 정렬 등록 프로세스
         startPlaylistCard.addEventListener('click', handleSwitchToMainDashboard);
         backToIntroBtn.addEventListener('click', handleReturnToIntroSplash);
         masterPlaybackTrigger.addEventListener('click', toggleCorePlaybackEngine);
 
 
         // ==========================================
-        // 5. [LOCALSTORAGE ENGINE] 감상평 영구 보존 엔진 로직
+        // 5. [COMMENT BOARD DATA ENGINE] 한줄평 관리 가상 스택 데이터 소스
         // ==========================================
         const portfolioCommentForm = document.getElementById('portfolio-comment-form');
         const portfolioCommentWrapper = document.getElementById('portfolio-comment-wrapper');
@@ -590,87 +653,53 @@
         const inputBody = document.getElementById('input-body');
         const commentCounter = document.getElementById('comment-counter');
 
-        // 로컬스토리지 저장 장치에서 이전 데이터 불러오기 (데이터 없으면 빈 배열)
-        let savedCommentDataStack = JSON.parse(localStorage.getItem('jiwoo_comments')) || [
-            { id: 1, name: '멜론명예전당', text: '"이디우이다" 라는 가사가 주는 아이덴티티가 너무 완벽합니다. 무한스밍 돌릴게요.' },
-            { id: 2, name: '마크덕후', text: '상단 배너 프로필 사진 픽셀 돼지 구현력 실화인가요ㅋㅋㅋ 디자인 인정입니다.' }
-        ];
+        let runtimeCommentTotalCount = 2; // 초기 샘플 데이터 2개 기반 셋업
 
-        // 상태 메트릭 카운터 갱신 함수
+        /**
+         * 현재 도큐먼트 내에 활성화되어 보관 중인 댓글 카운트 동적 수치 갱신 함수
+         */
         function updateCommentStackMetric() {
-            commentCounter.textContent = `총 ${savedCommentDataStack.length}개 한줄평`;
+            commentCounter.textContent = `총 ${runtimeCommentTotalCount}개 한줄평`;
         }
 
-        // 돔 화면에 데이터를 깔끔하게 뿌려주는 화면 렌더링 헬퍼 함수
-        function renderAllSavedComments() {
-            portfolioCommentWrapper.innerHTML = ''; // 기존 리스트 초기화
-            
-            savedCommentDataStack.forEach((comment) => {
-                const commentCard = document.createElement('div');
-                commentCard.className = "bg-[#212135]/40 p-4 rounded-xl flex justify-between items-start border border-white/5 animate-fade-in";
-                
-                commentCard.innerHTML = `
-                    <div class="space-y-1">
-                        <div class="flex items-center gap-2">
-                            <span class="font-bold text-sm text-[#ffb8d1]">${comment.name}</span>
-                            <span class="text-[10px] bg-pink-500/10 text-[#ff5c8a] px-1.5 py-0.5 rounded font-mono">Listener</span>
-                        </div>
-                        <p class="text-sm text-gray-300">${comment.text}</p>
-                    </div>
-                    <button class="comment-delete-btn text-xs text-gray-500 hover:text-red-400 transition-colors cursor-pointer select-none">삭제</button>
-                `;
-
-                // 개별 제어용 삭제 버튼 클릭 리스너 연결
-                commentCard.querySelector('.comment-delete-btn').addEventListener('click', () => {
-                    deleteSelectedCommentItem(comment.id);
-                });
-
-                portfolioCommentWrapper.appendChild(commentCard);
-            });
-            updateCommentStackMetric();
-        }
-
-        // 로컬 스토리지에 최종 실시간 스택 덮어쓰기 저장 함수
-        function saveCommentsToLocalStorage() {
-            localStorage.setItem('jiwoo_comments', JSON.stringify(savedCommentDataStack));
-        }
-
-        // 신규 한줄평 추가 액션 프로세스
+        /**
+         * 유저 서브밋 이벤트 가로채기 방명록 패킷 인젝션 함수
+         */
         portfolioCommentForm.addEventListener('submit', (event) => {
-            event.preventDefault();
+            event.preventDefault(); // 기본 내장 서브밋 브라우저 새로고침 디폴트 액션 인터셉트 차단
 
-            const nameValue = inputNickname.value.trim();
-            const textValue = inputBody.value.trim();
+            const parsedNickname = inputNickname.value.trim();
+            const parsedBodyText = inputBody.value.trim();
 
-            if (!nameValue || !textValue) return;
+            if (!parsedNickname || !parsedBodyText) return;
 
-            const newCommentObject = {
-                id: Date.now(), // 겹치지 않는 유니크한 타임스탬프 ID 할당
-                name: nameValue,
-                text: textValue
-            };
-
-            // 스택 맨 앞에 새로운 배열 데이터 삽입
-            savedCommentDataStack.unshift(newCommentObject);
+            const virtualCommentCardElement = document.createElement('div');
+            virtualCommentCardElement.className = "bg-[#212135]/40 p-4 rounded-xl flex justify-between items-start border border-white/5 animate-fade-in";
             
-            // 로컬 스토리지 보존 및 화면 새로고침 동기화
-            saveCommentsToLocalStorage();
-            renderAllSavedComments();
+            virtualCommentCardElement.innerHTML = `
+                <div class="space-y-1">
+                    <div class="flex items-center gap-2">
+                        <span class="font-bold text-sm text-[#ffb8d1]">${parsedNickname}</span>
+                        <span class="text-[10px] bg-pink-500/10 text-[#ff5c8a] px-1.5 py-0.5 rounded font-mono">New Fan</span>
+                    </div>
+                    <p class="text-sm text-gray-300">${parsedBodyText}</p>
+                </div>
+                <button class="target-delete-trigger text-xs text-gray-500 hover:text-red-400 transition-colors cursor-pointer select-none">삭제</button>
+            `;
 
-            // 인풋 폼 정리
+            virtualCommentCardElement.querySelector('.target-delete-trigger').addEventListener('click', () => {
+                virtualCommentCardElement.remove();
+                runtimeCommentTotalCount--;
+                updateCommentStackMetric();
+            });
+
+            portfolioCommentWrapper.prepend(virtualCommentCardElement);
+
             inputNickname.value = '';
             inputBody.value = '';
+            runtimeCommentTotalCount++;
+            updateCommentStackMetric();
         });
-
-        // 특정 한줄평 요소 삭제 필터링 연산 함수
-        function deleteSelectedCommentItem(targetId) {
-            savedCommentDataStack = savedCommentDataStack.filter(item => item.id !== targetId);
-            saveCommentsToLocalStorage();
-            renderAllSavedComments();
-        }
-
-        // 최초 로딩 시 데이터 뿌리기 자동 기동 실행구
-        renderAllSavedComments();
     </script>
 </body>
 </html>
