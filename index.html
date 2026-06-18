@@ -123,4 +123,554 @@
         .neon-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 10px 30px -5px rgba(255, 92, 138, 0.25);
-            background-color:
+            background-color: rgba(30, 30, 45, 0.85);
+        }
+
+        /* 댓글 페이드인 */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="aurora-bg">
+        <div class="aurora-circle aurora-1"></div>
+        <div class="aurora-circle aurora-2"></div>
+        <div class="aurora-circle aurora-3"></div>
+    </div>
+
+
+    <div id="intro-screen" class="page-transition fixed inset-0 z-[100] flex flex-col items-center justify-between bg-gradient-to-tr from-[#080710] via-[#120e2e] to-[#080710] px-6 py-12">
+        
+        <div class="flex items-center gap-2 text-gray-300 text-xs tracking-widest uppercase font-bold animate-pulse">
+            <i data-lucide="music-4" class="w-5 h-5 text-pink-500"></i>
+            <span>JIWOO MUSIC PLAYER</span>
+        </div>
+
+        <div class="text-center max-w-sm w-full space-y-6">
+            <div id="start-playlist-card" class="relative group mx-auto w-64 h-64 md:w-72 md:h-72 bg-gradient-to-br from-[#ff5c8a] via-[#a855f7] to-[#3b82f6] rounded-2xl shadow-[0_25px_60px_rgba(255,92,138,0.4)] flex flex-col items-center justify-center p-6 cursor-pointer transform hover:scale-105 transition-all duration-500 border border-white/20 overflow-hidden">
+                <div class="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"></div>
+                
+                <div class="w-24 h-24 bg-white/10 backdrop-blur-md rounded-2xl flex items-center justify-center text-5xl shadow-2xl mb-4 group-hover:rotate-12 transition-transform duration-500 border border-white/10">
+                    🐷
+                </div>
+
+                <h2 class="text-2xl font-black text-white tracking-wide drop-shadow-lg text-center leading-tight">
+                    지우의 오늘의 픽<br>플레이리스트
+                </h2>
+                <p class="text-xs text-pink-200 mt-2 font-medium bg-black/20 px-3 py-1 rounded-full border border-white/5">Curated by 이지우</p>
+
+                <div class="absolute inset-0 bg-black/50 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div class="w-16 h-16 bg-[#ff5c8a] text-white rounded-full flex items-center justify-center shadow-2xl transform scale-75 group-hover:scale-100 transition-transform duration-300 border-2 border-white/20">
+                        <i data-lucide="play" class="w-8 h-8 fill-white translate-x-0.5"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="space-y-2">
+                <p class="text-base text-gray-200 font-bold">플레이리스트 앨범을 터치하세요</p>
+                <p class="text-xs text-gray-400 font-medium leading-relaxed">지우의 세상을 연결하는 음악과<br>이야기가 지금 바로 스트리밍됩니다.</p>
+            </div>
+        </div>
+
+        <div class="w-full max-w-xs space-y-3">
+            <div class="flex items-center justify-between text-[11px] font-mono text-gray-500">
+                <span>CONNECTING...</span>
+                <span>v1.2.0</span>
+            </div>
+            <div class="w-full h-1 bg-gray-900 rounded-full overflow-hidden border border-white/5">
+                <div class="h-full w-2/3 bg-gradient-to-r from-pink-500 to-purple-500 rounded-full animate-pulse"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="main-content" class="page-transition hidden opacity-0 max-w-4xl mx-auto px-4 pt-6 md:pt-12 pb-36">
+        
+        <nav class="flex items-center justify-between py-4 mb-6 border-b border-white/5">
+            <div class="flex items-center gap-2 cursor-pointer" id="back-to-intro">
+                <i data-lucide="chevron-left" class="w-5 h-5 text-gray-400 hover:text-white transition-colors"></i>
+                <span class="text-xs font-semibold text-gray-400 uppercase tracking-wider">이전 화면</span>
+            </div>
+            <div class="text-center">
+                <span class="text-xs font-bold bg-white/5 border border-white/10 px-3 py-1 rounded-full text-pink-300">NOW PLAYING PROFILE</span>
+            </div>
+            <div class="w-5 h-5 opacity-0"></div>
+        </nav>
+
+        <header class="relative rounded-2xl overflow-hidden bg-gradient-to-b from-[#ffb8d1]/30 via-[#25172b]/60 to-[#161622]/90 p-6 md:p-10 flex flex-col md:flex-row items-center md:items-end gap-6 mb-10 shadow-2xl border border-white/5 backdrop-blur-md">
+            
+            <div class="w-40 h-40 md:w-44 md:h-44 bg-[#ff9ebc] border-4 border-[#e03d6d] rounded-2xl shadow-2xl flex flex-col items-center justify-between p-4 relative select-none shrink-0 overflow-hidden group">
+                <div class="absolute top-12 left-6 w-6 h-4 bg-white border border-black flex items-center justify-end">
+                    <div class="w-3 h-4 bg-black"></div>
+                </div>
+                <div class="absolute top-12 right-6 w-6 h-4 bg-white border border-black flex items-center justify-start">
+                    <div class="w-3 h-4 bg-black"></div>
+                </div>
+                <div class="pixel-pig-nose w-full h-full"></div>
+                <div class="absolute bottom-0 inset-x-0 h-2 bg-black/10"></div>
+            </div>
+            
+            <div class="text-center md:text-left flex-1 space-y-2">
+                <div class="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-wider text-[#ff5c8a] bg-[#ff5c8a]/10 px-3 py-1 rounded-full border border-[#ff5c8a]/20">
+                    <i data-lucide="verified" class="w-3.5 h-3.5 fill-[#ff5c8a] text-black"></i>
+                    <span>Certified Artist</span>
+                </div>
+                <h1 class="text-4xl md:text-5xl font-black mt-2 tracking-tight text-white">이지우</h1>
+                <p class="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-300 to-purple-400">"이디우이다"</p>
+                
+                <div class="flex flex-wrap items-center justify-center md:justify-start gap-x-4 gap-y-1 pt-2 text-xs md:text-sm text-gray-400 border-t border-white/5 mt-2">
+                    <span>실시간 청취자 <strong class="text-white">1,212,026 명</strong></span>
+                    <span class="text-gray-600">•</span>
+                    <span>시그니처 바이브 <strong class="text-pink-400">밝음 / 잔잔함</strong></span>
+                    <span class="text-gray-600">•</span>
+                    <span>장르 <strong class="text-purple-400">세상의모든것</strong></span>
+                </div>
+            </div>
+        </header>
+
+
+        <main class="space-y-12">
+            
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="p-1 bg-pink-500/10 rounded-lg border border-pink-500/20">
+                        <i data-lucide="disc-3" class="w-5 h-5 text-pink-500 animate-spin" style="animation-duration: 6s;"></i>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-wider uppercase text-gray-200">NOW PLAYING / 관심 분야</h2>
+                </div>
+                
+                <div class="bg-gradient-to-r from-[#161622] to-[#1e1e2f] p-5 rounded-2xl border border-white/5 flex flex-col md:flex-row items-start md:items-center justify-between gap-5 transition-transform hover:scale-[1.01] duration-300 shadow-lg">
+                    <div class="flex items-center gap-4 w-full md:w-auto">
+                        <div class="w-16 h-16 bg-gradient-to-tr from-yellow-300 via-amber-400 to-orange-500 rounded-xl flex items-center justify-center shrink-0 text-3xl shadow-md select-none transform hover:rotate-6 transition-transform">
+                            🌍
+                        </div>
+                        <div class="space-y-0.5">
+                            <h3 class="font-extrabold text-xl text-white tracking-wide">이세상의 모든 것</h3>
+                            <p class="text-xs text-gray-400 font-medium">제한 없음 • 지우의 올라운더 지적 호기심 스트리밍 중</p>
+                        </div>
+                    </div>
+                    
+                    <div class="w-full md:w-72 flex flex-col gap-1.5">
+                        <div class="flex items-center justify-between text-[11px] text-gray-400 font-mono">
+                            <span id="track-time-current">1:05</span>
+                            <span class="text-pink-400 font-bold">LIVE STAGE</span>
+                            <span>3:45</span>
+                        </div>
+                        <div class="w-full h-2 bg-gray-800 rounded-full overflow-hidden relative border border-black/20">
+                            <div class="absolute left-0 top-0 h-full w-[65%] bg-gradient-to-r from-pink-500 to-purple-500 rounded-full shadow-[0_0_10px_rgba(255,92,138,0.5)]"></div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="space-y-4">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="p-1 bg-purple-500/10 rounded-lg border border-purple-500/20">
+                            <i data-lucide="layers" class="w-5 h-5 text-purple-400"></i>
+                        </div>
+                        <h2 class="text-lg font-bold tracking-wider uppercase text-gray-200">MY FAVORITE / 취미 & 좋아하는 것</h2>
+                    </div>
+                    <span class="text-xs text-gray-400 font-mono">3 Tracks</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+                    <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
+                        <div class="relative aspect-square bg-gradient-to-br from-indigo-400 via-indigo-600 to-slate-900 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                            😴
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                                <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-base text-white tracking-wide group-hover:text-pink-400 transition-colors">누워있기</h3>
+                                <span class="text-[10px] font-mono text-gray-500">Track 01</span>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed">세상에서 가장 완벽한 눕방 및 척추 휴식 상태의 영원한 대치</p>
+                        </div>
+                    </div>
+
+                    <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
+                        <div class="relative aspect-square bg-gradient-to-br from-cyan-400 via-teal-600 to-gray-900 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                            🎬
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                                <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-base text-white tracking-wide group-hover:text-pink-400 transition-colors">아이패드 보기</h3>
+                                <span class="text-[10px] font-mono text-gray-500">Track 02</span>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed">스마트한 디스플레이 장치로 마주하는 끝없는 글로벌 콘텐츠의 바다</p>
+                        </div>
+                    </div>
+
+                    <div class="neon-card bg-[#161622]/60 border border-white/5 p-4 rounded-2xl group cursor-pointer backdrop-blur-sm">
+                        <div class="relative aspect-square bg-gradient-to-br from-[#ff9ebb] via-[#ff5c8a] to-rose-950 rounded-xl mb-4 flex items-center justify-center text-5xl select-none">
+                            🧼
+                            <button class="absolute bottom-3 right-3 w-10 h-10 bg-white text-black rounded-full flex items-center justify-center opacity-0 translate-y-2 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 shadow-2xl">
+                                <i data-lucide="play" class="w-4 h-4 fill-black text-black translate-x-0.5"></i>
+                            </button>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="flex items-center justify-between">
+                                <h3 class="font-bold text-base text-white tracking-wide group-hover:text-pink-400 transition-colors">슬라임 영상 보기</h3>
+                                <span class="text-[10px] font-mono text-gray-500">Track 03</span>
+                            </div>
+                            <p class="text-xs text-gray-400 leading-relaxed">말랑말랑 투명한 텍스처 터치 사운드와 강력한 시각적 ASMR 대리 힐링</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="p-1 bg-yellow-500/10 rounded-lg border border-yellow-500/20">
+                        <i data-lucide="award" class="w-5 h-5 text-yellow-400"></i>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-wider uppercase text-gray-200">HIT TRACK / 잘하는 것 (나의 강점)</h2>
+                </div>
+
+                <div class="bg-[#161622]/80 rounded-2xl overflow-hidden border border-white/5 shadow-xl backdrop-blur-sm">
+                    <div class="flex items-center justify-between p-5 hover:bg-white/5 transition-colors group">
+                        <div class="flex items-center gap-4">
+                            <span class="text-xl font-bold text-pink-500 w-6 text-center select-none animate-pulse">👑</span>
+                            <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-pink-500 rounded-xl flex items-center justify-center text-2xl shadow-md select-none transform group-hover:scale-105 transition-transform">
+                                💤
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-base md:text-lg text-white group-hover:text-pink-300 transition-colors">오랫동안 안 깨고 자기</h3>
+                                <div class="flex items-center gap-2 mt-0.5">
+                                    <span class="text-[10px] bg-pink-500/20 text-pink-400 px-1.5 py-0.5 rounded font-extrabold uppercase tracking-wide">Signature Track</span>
+                                    <span class="text-xs text-gray-400 font-medium">안정적인 딥슬립 뇌파 유지 스킬 보유</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center gap-6 text-sm text-gray-400">
+                            <div class="flex gap-0.5 text-amber-400 bg-amber-500/5 px-2.5 py-1.5 rounded-xl border border-amber-500/10">
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                                <i data-lucide="star" class="w-3.5 h-3.5 fill-amber-400"></i>
+                            </div>
+                            <span class="hidden md:inline font-mono text-xs tracking-wider text-gray-500">지속도: 5.0 / 5.0</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="space-y-4">
+                <div class="flex items-center gap-2">
+                    <div class="p-1 bg-cyan-500/10 rounded-lg border border-cyan-500/20">
+                        <i data-lucide="forward" class="w-5 h-5 text-cyan-400"></i>
+                    </div>
+                    <h2 class="text-lg font-bold tracking-wider uppercase text-gray-200">NEXT ALBUM / 앞으로 해보고 싶은 것</h2>
+                </div>
+
+                <div class="relative rounded-2xl overflow-hidden bg-gradient-to-r from-blue-950 via-indigo-950 to-[#0e1726] p-6 md:p-8 border border-blue-500/20 flex flex-col md:flex-row items-center justify-between gap-6 shadow-2xl">
+                    <div class="absolute -right-16 -bottom-16 w-48 h-48 bg-cyan-500/10 rounded-full filter blur-3xl pointer-events-none"></div>
+                    
+                    <div class="text-center md:text-left space-y-1 relative z-10">
+                        <span class="text-[10px] font-extrabold text-cyan-300 uppercase tracking-widest bg-cyan-400/10 px-2.5 py-1 rounded-md border border-cyan-400/20">Teaser Announcement 🎓</span>
+                        <h3 class="text-2xl md:text-3xl font-black text-white mt-2 tracking-tight">서울대 가기</h3>
+                        <p class="text-xs md:text-sm text-gray-300 max-w-lg leading-relaxed">
+                            지우의 인생 타임라인 메인 마스터피스가 될 초대형 차기 발매 앨범 프로젝트 목표 지향성 빌드업 트랙 가동 준비중.
+                        </p>
+                    </div>
+
+                    <div class="px-5 py-3 bg-white/5 border border-white/10 backdrop-blur-md rounded-xl font-bold text-xs text-cyan-200 tracking-widest select-none whitespace-nowrap animate-pulse flex items-center gap-2 shadow-inner">
+                        <i data-lucide="sparkles" class="w-3.5 h-3.5 text-cyan-300"></i>
+                        <span>COMING SOON / DEBUT</span>
+                    </div>
+                </div>
+            </section>
+
+
+            <section class="bg-[#161622]/90 p-6 rounded-2xl border border-white/5 shadow-2xl backdrop-blur-md space-y-6">
+                <div class="flex items-center justify-between">
+                    <div class="flex items-center gap-2">
+                        <div class="p-1 bg-rose-500/10 rounded-lg border border-rose-500/20">
+                            <i data-lucide="message-square" class="w-5 h-5 text-[#ff5c8a]"></i>
+                        </div>
+                        <h2 class="text-lg font-bold tracking-wider uppercase text-white">REVIEWS / 실시간 한줄평 방명록</h2>
+                    </div>
+                    <span id="comment-counter" class="text-xs font-mono px-2.5 py-1 bg-white/5 border border-white/10 rounded-full text-gray-400 font-bold">총 0개 한줄평</span>
+                </div>
+                
+                <form id="portfolio-comment-form" class="flex flex-col sm:flex-row gap-3">
+                    <input type="text" id="input-nickname" placeholder="닉네임" maxLength="10" required 
+                           class="bg-[#212135] border border-white/5 focus:border-[#ff5c8a] focus:bg-[#28283f] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 outline-none w-full sm:w-1/4 transition-all shadow-inner">
+                    <input type="text" id="input-body" placeholder="지우의 플레이리스트와 프로필을 보고 느낀 감상평을 남겨주세요!" required 
+                           class="bg-[#212135] border border-white/5 focus:border-[#ff5c8a] focus:bg-[#28283f] rounded-xl px-4 py-3 text-sm text-white placeholder-gray-500 outline-none flex-1 transition-all shadow-inner">
+                    <button type="submit" class="bg-[#ff5c8a] hover:bg-[#ff7597] text-white font-extrabold px-6 py-3 rounded-xl text-sm transition-all whitespace-nowrap active:scale-95 shadow-lg shadow-pink-500/20 cursor-pointer flex items-center justify-center gap-1">
+                        <i data-lucide="send" class="w-4 h-4"></i>
+                        <span>등록</span>
+                    </button>
+                </form>
+
+                <div id="portfolio-comment-wrapper" class="space-y-3.5 max-h-72 overflow-y-auto pr-1">
+                    </div>
+            </section>
+
+        </main>
+    </div>
+
+
+    <footer class="fixed bottom-0 left-0 right-0 bg-[#161622]/95 border-t border-white/5 px-4 py-4.5 z-50 shadow-[0_-10px_30px_rgba(0,0,0,0.5)] backdrop-blur-lg">
+        <div class="max-w-6xl mx-auto flex items-center justify-between gap-4">
+            
+            <div class="flex items-center gap-3 w-1/3 min-w-[140px]">
+                <div class="w-12 h-12 bg-[#ff9ebc] border-2 border-[#e03d6d] rounded-xl flex items-center justify-center text-xl shrink-0 shadow-md select-none">
+                    🐷
+                </div>
+                <div class="overflow-hidden hidden sm:block max-w-[180px]">
+                    <div id="media-title-viewport" class="w-full overflow-hidden whitespace-nowrap relative h-5">
+                        <h4 id="media-running-title" class="font-bold text-sm text-white absolute left-0 top-0">이디우이다 (Jiwoo Album Track)</h4>
+                    </div>
+                    <p class="text-xs text-pink-300 font-medium tracking-tight truncate mt-0.5">이지우 (Curator)</p>
+                </div>
+            </div>
+
+            <div class="flex flex-col items-center gap-2 flex-1">
+                <div class="flex items-center gap-6">
+                    <button class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i data-lucide="shuffle" class="w-4 h-4"></i></button>
+                    <button class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i data-lucide="skip-back" class="w-4.5 h-4.5"></i></button>
+                    <button id="master-playback-trigger" class="w-9 h-9 bg-white text-black rounded-full flex items-center justify-center hover:scale-105 active:scale-95 transition-all shadow-xl cursor-pointer">
+                        <i id="playback-icon" data-lucide="play" class="w-4.5 h-4.5 fill-black text-black translate-x-0.5"></i>
+                    </button>
+                    <button class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i data-lucide="skip-forward" class="w-4.5 h-4.5"></i></button>
+                    <button class="text-gray-400 hover:text-white transition-colors cursor-pointer"><i data-lucide="repeat" class="w-4 h-4"></i></button>
+                </div>
+                
+                <div class="w-full max-w-md hidden md:flex items-center gap-2.5 text-[11px] font-mono text-gray-400 select-none">
+                    <span id="footer-playback-time">0:00</span>
+                    <div class="flex-1 h-1 bg-gray-800 rounded-full overflow-hidden relative border border-white/5">
+                        <div id="footer-playback-progress" class="absolute left-0 top-0 h-full w-0 bg-gradient-to-r from-[#ff5c8a] to-[#a855f7] transition-all duration-300 rounded-full"></div>
+                    </div>
+                    <span>3:12</span>
+                </div>
+            </div>
+
+            <div class="flex items-center justify-end gap-4 w-1/3">
+                <div id="audio-live-equalizer" class="flex items-end gap-0.5 h-6 w-10 justify-center opacity-30 transition-opacity duration-300">
+                    <div class="eq-bar w-1 bg-[#ff5c8a] rounded-t" style="animation-play-state: paused;"></div>
+                    <div class="eq-bar w-1 bg-[#ff5c8a] rounded-t" style="animation-play-state: paused;"></div>
+                    <div class="eq-bar w-1 bg-[#ff5c8a] rounded-t" style="animation-play-state: paused;"></div>
+                    <div class="eq-bar w-1 bg-[#ff5c8a] rounded-t" style="animation-play-state: paused;"></div>
+                    <div class="eq-bar w-1 bg-[#ff5c8a] rounded-t" style="animation-play-state: paused;"></div>
+                </div>
+                
+                <div class="hidden sm:flex items-center gap-1.5 text-gray-400">
+                    <i data-lucide="volume-2" class="w-4 h-4"></i>
+                    <div class="w-16 h-1 bg-gray-700 rounded-full"><div class="h-full w-4/5 bg-gray-400 rounded-full"></div></div>
+                </div>
+            </div>
+
+        </div>
+    </footer>
+
+
+    <script>
+        lucide.createIcons();
+
+        const introScreen = document.getElementById('intro-screen');
+        const mainContent = document.getElementById('main-content');
+        const startPlaylistCard = document.getElementById('start-playlist-card');
+        const backToIntroBtn = document.getElementById('back-to-intro');
+
+        const masterPlaybackTrigger = document.getElementById('master-playback-trigger');
+        const audioLiveEqualizer = document.getElementById('audio-live-equalizer');
+        const eqBars = document.querySelectorAll('.eq-bar');
+        const mediaRunningTitle = document.getElementById('media-running-title');
+        
+        const footerPlaybackProgress = document.getElementById('footer-playback-progress');
+        const footerPlaybackTime = document.getElementById('footer-playback-time');
+
+        let coreAudioPlaying = false;
+        let timelineTickerInterval = null;
+        let elapsedTotalSeconds = 0;
+        const maxTrackLengthSeconds = 192;
+
+        function handleSwitchToMainDashboard() {
+            introScreen.classList.add('opacity-0', 'scale-95');
+            setTimeout(() => {
+                introScreen.classList.add('hidden');
+                mainContent.classList.remove('hidden');
+                setTimeout(() => {
+                    mainContent.classList.remove('opacity-0');
+                    mainContent.classList.add('opacity-100');
+                    if (!coreAudioPlaying) {
+                        toggleCorePlaybackEngine();
+                    }
+                }, 50);
+            }, 800);
+        }
+
+        function handleReturnToIntroSplash() {
+            mainContent.classList.remove('opacity-100');
+            mainContent.classList.add('opacity-0');
+            setTimeout(() => {
+                mainContent.classList.add('hidden');
+                introScreen.classList.remove('hidden');
+                setTimeout(() => {
+                    introScreen.classList.remove('opacity-0', 'scale-95');
+                    introScreen.classList.add('opacity-100');
+                }, 50);
+            }, 800);
+        }
+
+        function runAudioTimelineTicker() {
+            if(timelineTickerInterval) clearInterval(timelineTickerInterval);
+            timelineTickerInterval = setInterval(() => {
+                if (elapsedTotalSeconds < maxTrackLengthSeconds) {
+                    elapsedTotalSeconds++;
+                    const calculatedMinutes = Math.floor(elapsedTotalSeconds / 60);
+                    const calculatedSeconds = elapsedTotalSeconds % 60;
+                    const paddedSecondsString = calculatedSeconds < 10 ? '0' + calculatedSeconds : calculatedSeconds;
+                    footerPlaybackTime.textContent = `${calculatedMinutes}:${paddedSecondsString}`;
+                    const progressPercentage = (elapsedTotalSeconds / maxTrackLengthSeconds) * 100;
+                    footerPlaybackProgress.style.width = `${progressPercentage}%`;
+                } else {
+                    elapsedTotalSeconds = 0;
+                    footerPlaybackProgress.style.width = `0%`;
+                    footerPlaybackTime.textContent = "0:00";
+                }
+            }, 1000);
+        }
+
+         Tar가 전광판 플레이 스위칭 기능
+        function toggleCorePlaybackEngine() {
+            coreAudioPlaying = !coreAudioPlaying;
+            if (coreAudioPlaying) {
+                masterPlaybackTrigger.innerHTML = '<i data-lucide="pause" class="w-4.5 h-4.5 fill-black text-black"></i>';
+                audioLiveEqualizer.classList.remove('opacity-30');
+                audioLiveEqualizer.classList.add('opacity-100');
+                eqBars.forEach(bar => bar.style.animationPlayState = 'running');
+                mediaRunningTitle.classList.add('animate-marquee');
+                runAudioTimelineTicker();
+            } else {
+                masterPlaybackTrigger.innerHTML = '<i data-lucide="play" class="w-4.5 h-4.5 fill-black text-black translate-x-0.5"></i>';
+                audioLiveEqualizer.classList.remove('opacity-100');
+                audioLiveEqualizer.classList.add('opacity-30');
+                eqBars.forEach(bar => bar.style.animationPlayState = 'paused');
+                mediaRunningTitle.classList.remove('animate-marquee');
+                if(timelineTickerInterval) {
+                    clearInterval(timelineTickerInterval);
+                    timelineTickerInterval = null;
+                }
+            }
+            lucide.createIcons();
+        }
+
+        startPlaylistCard.addEventListener('click', handleSwitchToMainDashboard);
+        backToIntroBtn.addEventListener('click', handleReturnToIntroSplash);
+        masterPlaybackTrigger.addEventListener('click', toggleCorePlaybackEngine);
+
+
+        // ==========================================
+        // 5. [LOCALSTORAGE ENGINE] 감상평 영구 보존 엔진 로직
+        // ==========================================
+        const portfolioCommentForm = document.getElementById('portfolio-comment-form');
+        const portfolioCommentWrapper = document.getElementById('portfolio-comment-wrapper');
+        const inputNickname = document.getElementById('input-nickname');
+        const inputBody = document.getElementById('input-body');
+        const commentCounter = document.getElementById('comment-counter');
+
+        // 로컬스토리지 저장 장치에서 이전 데이터 불러오기 (데이터 없으면 빈 배열)
+        let savedCommentDataStack = JSON.parse(localStorage.getItem('jiwoo_comments')) || [
+            { id: 1, name: '멜론명예전당', text: '"이디우이다" 라는 가사가 주는 아이덴티티가 너무 완벽합니다. 무한스밍 돌릴게요.' },
+            { id: 2, name: '마크덕후', text: '상단 배너 프로필 사진 픽셀 돼지 구현력 실화인가요ㅋㅋㅋ 디자인 인정입니다.' }
+        ];
+
+        // 상태 메트릭 카운터 갱신 함수
+        function updateCommentStackMetric() {
+            commentCounter.textContent = `총 ${savedCommentDataStack.length}개 한줄평`;
+        }
+
+        // 돔 화면에 데이터를 깔끔하게 뿌려주는 화면 렌더링 헬퍼 함수
+        function renderAllSavedComments() {
+            portfolioCommentWrapper.innerHTML = ''; // 기존 리스트 초기화
+            
+            savedCommentDataStack.forEach((comment) => {
+                const commentCard = document.createElement('div');
+                commentCard.className = "bg-[#212135]/40 p-4 rounded-xl flex justify-between items-start border border-white/5 animate-fade-in";
+                
+                commentCard.innerHTML = `
+                    <div class="space-y-1">
+                        <div class="flex items-center gap-2">
+                            <span class="font-bold text-sm text-[#ffb8d1]">${comment.name}</span>
+                            <span class="text-[10px] bg-pink-500/10 text-[#ff5c8a] px-1.5 py-0.5 rounded font-mono">Listener</span>
+                        </div>
+                        <p class="text-sm text-gray-300">${comment.text}</p>
+                    </div>
+                    <button class="comment-delete-btn text-xs text-gray-500 hover:text-red-400 transition-colors cursor-pointer select-none">삭제</button>
+                `;
+
+                // 개별 제어용 삭제 버튼 클릭 리스너 연결
+                commentCard.querySelector('.comment-delete-btn').addEventListener('click', () => {
+                    deleteSelectedCommentItem(comment.id);
+                });
+
+                portfolioCommentWrapper.appendChild(commentCard);
+            });
+            updateCommentStackMetric();
+        }
+
+        // 로컬 스토리지에 최종 실시간 스택 덮어쓰기 저장 함수
+        function saveCommentsToLocalStorage() {
+            localStorage.setItem('jiwoo_comments', JSON.stringify(savedCommentDataStack));
+        }
+
+        // 신규 한줄평 추가 액션 프로세스
+        portfolioCommentForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+
+            const nameValue = inputNickname.value.trim();
+            const textValue = inputBody.value.trim();
+
+            if (!nameValue || !textValue) return;
+
+            const newCommentObject = {
+                id: Date.now(), // 겹치지 않는 유니크한 타임스탬프 ID 할당
+                name: nameValue,
+                text: textValue
+            };
+
+            // 스택 맨 앞에 새로운 배열 데이터 삽입
+            savedCommentDataStack.unshift(newCommentObject);
+            
+            // 로컬 스토리지 보존 및 화면 새로고침 동기화
+            saveCommentsToLocalStorage();
+            renderAllSavedComments();
+
+            // 인풋 폼 정리
+            inputNickname.value = '';
+            inputBody.value = '';
+        });
+
+        // 특정 한줄평 요소 삭제 필터링 연산 함수
+        function deleteSelectedCommentItem(targetId) {
+            savedCommentDataStack = savedCommentDataStack.filter(item => item.id !== targetId);
+            saveCommentsToLocalStorage();
+            renderAllSavedComments();
+        }
+
+        // 최초 로딩 시 데이터 뿌리기 자동 기동 실행구
+        renderAllSavedComments();
+    </script>
+</body>
+</html>
